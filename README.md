@@ -1,5 +1,5 @@
 # MediaUploader
-A Sprint Boot Project to Upload MP3 Files and Extract and Store Any Meta Data in an in memory H2 database.  Uses the Apache Tika library version 1.17 to parse out meta data from the *.mp3 files.
+A test driven Sprint Boot Project to Upload MP3 Files and Extract and Store Any Meta Data in an in memory H2 database.  Uses the Apache Tika library version 1.17 to parse out meta data from the *.mp3 files.
 
 Creates REST style webservice URLs to upload and view meta data on *.mp3 files.
 
