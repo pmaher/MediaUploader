@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css"></link>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+	integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+	crossorigin="anonymous"></script>
+	<style type="text/css">
+	.btn-secondary { padding:0.40rem 1rem; }
+	label { margin-bottom: 0; }
+	</style>
+</head>
+<body>
+	<div class="jumbotron text-center">
+		<div class="container">
+			<h1 class="cover-heading">MP3 Uploader</h1>
+			<div th:if="${message}" th:class="${messageClass}"
+				th:text="${message}" role="alert"></div>
+
+			<p class="lead">Select a file to upload, click on the "Upload"
+				button to upload it, and then watch as the MP3 Uploader carefully
+				extracts the meta-data from your file.</p>
+
+			<form method="POST" enctype="multipart/form-data" action="/">
+				<input type="file" name="file"  class="btn btn-secondary" value="Browse..." />
+				<label class="btn btn-primary">Upload <input type="submit"
+					value="Upload" class="d-none" />
+				</label>
+			</form>
+
+			<table class="table text-left table-hover table-striped table-bordered">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>File Name</th>
+						<th>Path</th>
+						<th>Artist</th>
+						<th>Title</th>
+						<th>Genre</th>
+						<th>Track Number</th>
+						<th>Release Date</th>
+					</tr>
+				</thead>
+				<tr th:each="mediaInfo : ${mediaInfos}">
+					<td th:text="${mediaInfo.getId()}" />
+					<td th:text="${mediaInfo.getFileName()}" />
+					<td th:text="${mediaInfo.getPath()}" />
+					<td th:text="${mediaInfo.getArtist()}" />
+					<td th:text="${mediaInfo.getTitle()}" />
+					<td th:text="${mediaInfo.getGenre()}" />
+					<td th:text="${mediaInfo.getTrackNumber()}" />
+					<td th:text="${mediaInfo.getReleaseDate()}" />
+				</tr>
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
